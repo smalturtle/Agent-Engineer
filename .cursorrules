@@ -1,0 +1,69 @@
+# Agent Engineer — Cursor 项目规则
+
+## 目录约定
+
+- Skill 必须放在 `skills/<category>/<skill-name>/`，入口文件为 `SKILL.md`
+- MCP Server 实现放在 `mcp/servers/<server-name>/`，配置清单为 `mcp.json`
+- 独立脚本按语言放在 `tools/scripts/<lang>/`
+- 提示词模板放在 `tools/prompts/<category>/`
+- 每个顶层目录必须有 `README.md` 索引表
+
+## 命名规范
+
+- 目录与文件名：全小写 + 连字符（kebab-case），例如 `codex-thread-export`
+- Python 文件：snake_case，例如 `export_codex_thread.py`
+- YAML/JSON 配置：kebab-case，例如 `mcp-config.json`
+- 禁止使用空格、中文或大写字母作为文件/目录名
+
+## 编码风格
+
+### Python
+- 版本：3.10+
+- 格式化：black，行宽 88
+- 类型注解：必须，使用 `from __future__ import annotations`
+- Import 排序：isort
+
+### TypeScript / Node
+- 版本：Node 20+，TypeScript 5+
+- 格式化：prettier，单引号，无分号
+- 严格模式：`"strict": true`
+
+## Commit 规范
+
+遵循 Conventional Commits：
+- `feat(scope): subject`
+- `fix(scope): subject`
+- `docs(scope): subject`
+- subject 不超过 72 字符，使用英文或中文均可，但同一 commit 内保持一致
+
+## SKILL.md 元数据必填字段
+
+```yaml
+---
+name: <skill-name>
+description: "<一句话描述，说明触发场景>"
+category: <coding|writing|research|data|productivity>
+version: "1.0.0"
+maintainer: <name-or-alias>
+status: <active|experimental|deprecated>
+---
+```
+
+## mcp.json 必填字段
+
+```json
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "protocol_version": "",
+  "entry": "",
+  "dependencies": {}
+}
+```
+
+## 禁止事项
+
+- 禁止将密钥、token、个人路径硬编码到任何文件
+- 禁止提交 `.env` 文件（仅允许 `.env.example`）
+- 禁止跳过 `validate_structure.py` 校验直接合并

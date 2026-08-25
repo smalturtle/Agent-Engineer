@@ -1,0 +1,3 @@
+interface:
+  display_name: "Codex Thread Export"
+  short_description: "Export local Codex user and assistant messages to JSON"

@@ -1,0 +1,14 @@
+{
+  "name": "<server-name>",
+  "version": "1.0.0",
+  "description": "<一句话说明此 MCP Server 的职责>",
+  "protocol_version": "2024-11-05",
+  "entry": "server.py",
+  "runtime": "python",
+  "dependencies": {
+    "python": ">=3.10",
+    "packages": []
+  },
+  "maintainer": "<name-or-github-handle>",
+  "status": "experimental"
+}
